@@ -1,4 +1,4 @@
-# stick with leetcode's format
+# https://leetcode.com/problems/jump-game/description/
 from typing import List
 
 
