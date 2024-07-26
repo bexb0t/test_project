@@ -1,47 +1,44 @@
-from typing import List, Optional
+from typing import List
 
 
 class Solution:
     def nextPermutation(self, nums: List[int]) -> List[int]:
-        # traverse from right to left getting pairs of elements
-        for i in reversed(
-            range(len(nums))
-        ):  # TODO: probably don't need to waste the memory on reversed, can use a while loop
-            # find the first pair where the left element is smaller than the right element
-            left = nums[i - 1]
-            right = nums[i]
-            if left < right:
-                # left element is the pivot
-                pivot_index = i - 1
-                # store pivot value since we will change this later
-                pivot_value = nums[pivot_index]
-                swap_index = self.getSwapIndex(nums, pivot_index)
-                # swap the pivot and the next largest element
-                if swap_index:
-                    # set pivot equal to what we have in swap_index
-                    nums[pivot_index] = nums[swap_index]
-                    # set swap_index equal to stored pivot value
-                    nums[swap_index] = pivot_value
-                # TODO: can actually just reverse here
-                # arrange the rightmost numbers in the ascending order to get the lowest possible permutation
-                nums[(pivot_index + 1) :] = sorted(nums[(pivot_index + 1) :])
-                return nums
+        list_length = len(nums)
+        print(f"Nums given: {nums}, length: {list_length}")
+        if list_length <= 1:
+            return nums
 
-        # if you get to the beginning and don't find one, just sort the list ascending
-        return sorted(nums)
+        # Step 1: Find the first number that is smaller than the number to is right
+        # NOTE: This is the first occasion where the numbers to the right of the index are not in descending order
+        pivot_idx = list_length - 2  # starting from 2 from the end
+        while (
+            pivot_idx >= 0 and nums[pivot_idx] >= nums[pivot_idx + 1]
+        ):  # nums[idx] =left, nums[idx +1 ] = right
+            pivot_idx -= 1
+        print(f"Pivot index: {pivot_idx}, value: {nums[pivot_idx]}")
 
-    def getSwapIndex(self, nums: List[int], pivot_index: int) -> Optional[int]:
-        """
-        find the smallest, rightmost element to the right of the pivot index that is larger than the given value
-        """
-        # only consider the elements to the right of pivot
-        slice = nums[(pivot_index + 1) :]
-        swap_val = min(filter(lambda x: x > nums[pivot_index], slice))
-        # iterate reversed to get the last/rightmost matching index
-        for i in reversed(range(len(nums))):
-            if nums[i] == swap_val:
-                return i
-        return None
+        if pivot_idx >= 0:  # If there is a valid pivot
+            # Step 2: Find next largest number from the pivot
+            swap_index = list_length - 1
+            # Since we know all numbers to the right of pivot are in descending order, we can just grab the rightmost number that is larger
+            while (
+                nums[swap_index] <= nums[pivot_idx]
+            ):  # starting from the last item, iterate unti you find one larger than pivot
+                swap_index -= 1
+
+            # Step 3: Swap the pivot with this identified element
+            print(
+                f"Next highest number identified. Index: {swap_index}, val: {nums[swap_index]}"
+            )
+            nums[pivot_idx], nums[swap_index] = nums[swap_index], nums[pivot_idx]
+            print(f"Swapped these values, nums is now: {nums}")
+
+        # Step 4: Reverse the suffix
+        nums[pivot_idx + 1 :] = nums[pivot_idx + 1 :][::-1]
+        print(
+            f"Reversed all items to the right of pivot index {pivot_idx}, final value is: {nums}"
+        )
+        return nums
 
 
 if __name__ == "__main__":
@@ -100,3 +97,7 @@ if __name__ == "__main__":
     print(f"result: {solution.nextPermutation(nums)}, expected result: [1, 2, 3, 4, 5]")
 
     nums = [1, 2, 3, 5, 2, 3]
+    print(f"nums: {nums}")
+    print(
+        f"result: {solution.nextPermutation(nums)}, expected result: [1, 2, 3, 5, 3, 2]"
+    )
