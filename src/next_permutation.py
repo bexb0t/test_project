@@ -8,7 +8,7 @@ class Solution:
         if list_length <= 1:
             return nums
 
-        # Step 1: Find the first number that is smaller than the number to is right
+        # Step 1: Find the first number that is smaller than the number to its right
         # NOTE: This is the first occasion where the numbers to the right of the index are not in descending order
         pivot_idx = list_length - 2  # starting from 2 from the end
         while (
