@@ -43,61 +43,7 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    nums = [1, 2, 3]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [1,3,2]")
-
-    # TODO: we probably don't need to consider the entire previous set of numbers
-    nums = [3, 2, 1]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [1,2,3]")
-
-    nums = [1, 1, 5]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [1,5,1]")
-
-    nums = [1, 3, 2]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [2, 1, 3]")
-
-    nums = [2, 1, 3]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [2, 3, 1]")
-
-    nums = [1, 5, 1]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [5, 1, 1]")
-
-    nums = [1, 2, 3, 6, 5, 4]
-    print(f"nums: {nums}")
-    print(
-        f"result: {solution.nextPermutation(nums)}, expected result: [1, 2, 4, 3, 5, 6]"
-    )
-
-    nums = [1, 2, 3, 6, 2, 4]
-    print(f"nums: {nums}")
-    print(
-        f"result: {solution.nextPermutation(nums)}, expected result: [1, 2, 3, 6, 4, 2]"
-    )
 
     nums = [9, 8, 7, 6]
     print(f"nums: {nums}")
     print(f"result: {solution.nextPermutation(nums)}, expected result: [6, 7, 8, 9]")
-
-    nums = [1, 3, 2, 4, 3]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [1, 3, 3, 2, 4]")
-
-    nums = [2, 3, 1, 3, 3]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [2, 3, 3, 1, 3]")
-
-    nums = [5, 4, 3, 2, 1]
-    print(f"nums: {nums}")
-    print(f"result: {solution.nextPermutation(nums)}, expected result: [1, 2, 3, 4, 5]")
-
-    nums = [1, 2, 3, 5, 2, 3]
-    print(f"nums: {nums}")
-    print(
-        f"result: {solution.nextPermutation(nums)}, expected result: [1, 2, 3, 5, 3, 2]"
-    )
