@@ -20,7 +20,7 @@ class Solution(object):
         total_max = INT_MIN  # maxSum #max_so_far
         local_max = 0  # currSum #max_ending_here
         print(f"starting loop. total_max: {total_max}, local_max: {local_max}")
-        for i in range(len(nums) - 1):
+        for i in range(len(nums)):
             # at any point in the list, we just need to know the previous max, and then the current ending here is this cells value, plus the previous max
             prev_local_max = local_max  # delete this
             print(
