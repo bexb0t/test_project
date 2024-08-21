@@ -1,3 +1,6 @@
+# Bex Ungpiyakul - Senior Software Engineer, API Enablement
+# fix to initial approach
+
 from typing import Dict
 
 
@@ -22,43 +25,6 @@ def count_patterns(text: str) -> Dict[str, int]:
 
     return result
 
-
-# Your previous Plain Text content is preserved below:
-
-# Pad for Bex Ungpiyakul - Senior Software Engineer, API Enablement
-
-
-# Given the passage of text, count the number of 1 or 2 letter text patterns that start with the letter 'i'
-
-# A text pattern starting with the letter 'i' is defined as
-
-# A 1 or 2 character pattern in a word that starts with the letter 'i'
-
-# The letter 'i' by itself
-
-# The letter 'i' at the end of a word
-
-# The letter 'i' plus the letter that immediately follows it in the same word
-
-# Text patterns are case-insensitive; ‘i' and 'I’ should be treated as the same
-
-# Punctuation attached to a word should be ignored
-
-# Examples
-
-# ‘I' → 'i’
-
-# ‘alumni’ → 'i'
-
-# ‘financial’ → ‘in’, ‘ia’
-
-# ‘sight’ → ‘ig’
-
-# Output from this process should be a list of patterns and the number of times each pattern occurs, sorted in descending order by count
-
-# Should look something like …
-
-# is=5,it=3,iv=3,i=1,ie=1
 
 # input
 input = """

@@ -9,6 +9,9 @@ package-mode = false
 [tool.poetry.dependencies]
 python = "^3.11"
 numpy = "^2.0.0"
+sqlmodel = "^0.0.21"
+sqlalchemy = "^2.0.32"
+mysqlclient = "^2.2.4"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
